@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grow Labs | Live Chat Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <header class="sidebar-header">
+          <div class="user-avatar">GL</div>
+          <div class="header-actions">
+            <button class="btn-icon" title="Nuevo Chat"><i class="fa-solid fa-plus"></i></button>
+            <button class="btn-icon" id="btn-refresh" title="Actualizar"><i class="fa-solid fa-rotate"></i></button>
+          </div>
+        </header>
+
+        <div class="search-section">
+          <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="contact-search" placeholder="Buscar cliente...">
+          </div>
+        </div>
+
+        <div class="filters-section">
+          <div class="filter-chip active" data-filter="all">Todos</div>
+          <div class="filter-chip" data-filter="unread">No leídos</div>
+          <div class="filter-chip" data-filter="favorite">Favoritos</div>
+        </div>
+
+        <div class="contact-list" id="contact-list">
+          <div class="loading-state" style="padding: 20px; text-align: center; color: rgba(255,255,255,0.6);">
+            Inicializando sistema...
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Chat Area -->
+      <main class="chat-area">
+        <!-- Empty State -->
+        <div id="empty-chat-state" class="empty-chat">
+          <div class="empty-logo"></div>
+          <h2>Grow Labs</h2>
+          <p>Inteligencia Artificial aplicada al soporte. Seguridad de nivel empresarial.</p>
+        </div>
+
+        <!-- Active Chat -->
+        <div id="active-chat-container" style="display: none; flex: 1; flex-direction: column;">
+          <header class="chat-header">
+            <div class="active-contact-info" id="btn-edit-client">
+              <div class="avatar" id="active-avatar"></div>
+              <div class="active-contact-details">
+                <h3 id="active-contact-name">Selecciona un chat</h3>
+                <span id="active-contact-status">en línea</span>
+              </div>
+            </div>
+            <div class="chat-actions">
+              <button class="btn-icon" id="btn-favorite" title="Marcar como favorito">
+                <i class="fa-regular fa-star"></i>
+              </button>
+            </div>
+          </header>
+
+          <div class="messages-container" id="messages-container"></div>
+
+          <footer class="chat-footer">
+            <form id="chat-form">
+              <div class="input-wrapper">
+                <button type="button" class="btn-icon"><i class="fa-regular fa-face-smile"></i></button>
+                <button type="button" class="btn-icon"><i class="fa-solid fa-paperclip"></i></button>
+                <input type="text" id="chat-input" placeholder="Escribe un mensaje premium..." autocomplete="off">
+                <button type="submit" class="btn-send">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+          </footer>
+        </div>
+      </main>
+    </div>
+
+    <!-- Client Modal -->
+    <div class="modal-overlay" id="client-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Detalles del Cliente</h2>
+          <button class="btn-icon" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="client-detail-form">
+          <input type="hidden" id="modal-phone">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="modal-name" placeholder="Nombre completo">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="modal-email" placeholder="example@mail.com">
+          </div>
+          <div class="form-group">
+            <label>Dispositivo</label>
+            <input type="text" id="modal-device" placeholder="Ej: iPhone 15 Pro">
+          </div>
+          <div class="form-group">
+            <label>Interés / Categoría</label>
+            <select id="modal-interest">
+              <option value="Consulta General">Consulta General</option>
+              <option value="Venta">Venta</option>
+              <option value="Canje">Canje</option>
+              <option value="Servicio Técnico">Servicio Técnico</option>
+              <option value="Reclamo">Reclamo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Notas</label>
+            <textarea id="modal-notes" rows="3" placeholder="Notas adicionales..."></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="btn-cancel-modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
