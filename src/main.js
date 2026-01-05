@@ -2,11 +2,11 @@ import '/src/style.css'
 import { createClient } from '@supabase/supabase-js';
 
 const CONFIG = {
-  SUPABASE_URL: "https://pagyohqmupvugeuafuya.supabase.co",
-  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBhZ3lvaHFtdXB2dWdldWFmdXlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjcxOTU0MjcsImV4cCI6MjA4Mjc3MTQyN30.qbOb2sDZi0Tht0giMsoL0wzZYasBbqp8yOgY1Ce82b4",
-  BUILDERBOT_BASE_URL: "https://app.builderbot.cloud/api/v2",
-  BUILDERBOT_BOT_ID: "fa354b20-5d73-4c5c-95ab-d03d8f314fcb",
-  BUILDERBOT_API_KEY: "bb-5f5e9f11-4655-408c-aba1-5a993c1aa6e1"
+  SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL,
+  SUPABASE_ANON_KEY: import.meta.env.VITE_SUPABASE_ANON_KEY,
+  BUILDERBOT_BASE_URL: import.meta.env.VITE_BUILDERBOT_BASE_URL,
+  BUILDERBOT_BOT_ID: import.meta.env.VITE_BUILDERBOT_BOT_ID,
+  BUILDERBOT_API_KEY: import.meta.env.VITE_BUILDERBOT_API_KEY
 };
 
 const supabaseClient = createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY);
