@@ -173,6 +173,7 @@ body {
 .contact-list {
   flex: 1;
   overflow-y: auto;
+  min-height: 0;
 }
 
 .contact-item {
@@ -340,6 +341,11 @@ body {
   filter: drop-shadow(0 0 5px var(--primary-green));
 }
 
+#active-chat-container {
+  height: 100%;
+  overflow: hidden;
+}
+
 .messages-container {
   flex: 1;
   overflow-y: auto;
@@ -348,6 +354,8 @@ body {
   flex-direction: column;
   gap: 16px;
   background: transparent;
+  min-height: 0;
+  /* Crucial for scrolling in flexbox */
 }
 
 .message {
